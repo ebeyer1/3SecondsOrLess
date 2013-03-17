@@ -1,0 +1,38 @@
+<root>
+	<game1>
+		<title>Lawn Mower</title>
+		<time>
+			<min>2</min>
+			<max>4</max>
+		</time>
+	</game1>
+	<game2>
+		<title>Bacon Sizzle</title>
+		<time>
+			<min>3</min>
+			<max>5</max>
+		</time>
+	</game2>
+	<game3>
+		<title>Tea Pour</title>
+		<time>
+			<min>0</min>
+			<max>3</max>
+		</time>
+	</game3>
+	<game4>
+		<title>Milk Cow</title>
+		<time>
+			<min>2</min>
+			<max>5</max>
+		</time>
+	</game4>
+	<game5>
+		<title>Floss Teeth</title>
+		<time>
+			<min>0</min>
+			<max>5</max>
+		</time>
+	</game5>
+</root>
+	
