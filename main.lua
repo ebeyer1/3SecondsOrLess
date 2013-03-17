@@ -1,13 +1,9 @@
 screenWidth = MOAIEnvironment.screenWidth
 screenHeight = MOAIEnvironment.screenHeight
-if screenWidth == nil then screenWidth = 800 end
-if screenHeight == nil then screenHeight = 480 end
+if screenWidth == nil then screenWidth = 480 end
+if screenHeight == nil then screenHeight = 800 end
 
 MOAISim.openWindow("Window",screenWidth,screenHeight)
-
-viewport = MOAIViewport.new()
-viewport:setSize(screenWidth,screenHeight)
-viewport:setScale(screenWidth,screenHeight)
 
 package.path = './moaigui/?.lua;' .. './LuaXml/?.lua;' .. package.path
 require("LuaXml")
@@ -25,6 +21,26 @@ gui:addToResourcePath(filesystem.pathJoin("moaigui/resources", "gui"))
 gui:addToResourcePath(filesystem.pathJoin("moaigui/resources", "media"))
 gui:addToResourcePath(filesystem.pathJoin("moaigui/resources", "themes"))
 
+viewport = MOAIViewport.new()
+viewport:setSize(screenWidth,screenHeight)
+viewport:setScale(screenWidth,screenHeight)
+
+layer = MOAILayer2D.new()
+layer:setViewport(viewport)
+
+texture = MOAIImage.new()
+texture:load("default.png")
+
+sprite = MOAIGfxQuad2D.new()
+sprite:setTexture(texture)
+sprite:setRect(-200,-200,200,200)
+
+prop = MOAIProp2D.new()
+prop:setDeck(sprite)
+prop:setLoc(0,0)
+layer:insertProp(prop)
+
+layermgr.addLayer("img",100000, layer)
 layermgr.addLayer("gui",99999, gui:layer())
 gui:setTheme("basetheme.lua")
 gui:setCurrTextStyle("default")
@@ -80,6 +96,7 @@ function setupNextGame()
 		currentTitle = currentGame:find("title")[1]
 		currentTimespanMin = currentGame:find("time"):find("min")[1]
 		currentTimespanMax = currentGame:find("time"):find("max")[1]
+		currentImage = currentGame:find("image")[1]
 	end
 
 	currentLabel = "Currently playing: " .. currentTitle .. ", you have " .. currentTimespanMin .. "-" .. currentTimespanMax .. " seconds."
@@ -89,20 +106,22 @@ end
 function onButtonClick(event,data)
 	setupNextGame()
 	label1:setText(currentLabel)
+	texture:load(currentImage)
+	sprite:setTexture(texture)
 end
 
 chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 
 button = gui:createButton()
-button:setPos(0, 75)
-button:setDim(100,25)
+button:setPos(0, 85)
+button:setDim(100,15)
 button:setText("Click for next game")
 button:registerEventHandler(button.EVENT_BUTTON_CLICK,nil,onButtonClick)
 button:registerEventHandler(button.EVENT_TOUCH_ENTERS,nil,onButtonClick)
 
 label1 = gui:createLabel()
 label1:setPos(0,0)
-label1:setDim(100,25)
+label1:setDim(100,15)
 label1:setText("Default Label")
 label1:setTextAlignment(label1.TEXT_ALIGN_CENTER)
 
