@@ -7,6 +7,7 @@ MOAISim.openWindow("Window",screenWidth,screenHeight)
 
 package.path = './moaigui/?.lua;' .. './LuaXml/?.lua;' .. package.path
 require("LuaXml")
+require "lfs"
 require "gui/support/class"
 local moaigui = require "gui/gui"
 local resources = require "gui/support/resources"
@@ -29,7 +30,7 @@ layer = MOAILayer2D.new()
 layer:setViewport(viewport)
 
 texture = MOAIImage.new()
-texture:load("./resources/default.png")
+texture:load("./gamedata/Default/default.png")
 
 sprite = MOAIGfxQuad2D.new()
 sprite:setTexture(texture)
@@ -79,18 +80,12 @@ function nextGame()
 	return math.random(300) % 5 + 1
 end
 
-function setupNextGame()
+function setupNextGame(gamename)
 	-- some pseudo random way of establishing the next game
-	tmp = nextGame()
-	while gameIter == tmp do
-		tmp = nextGame()
-	end
-	
-	gameIter = tmp
-	local nodeBase = "game"
-	local gameIndex = nodeBase .. gameIter
+	local path = "./gamedata/" .. gamename .. "/data.xml"
+	local xfile = xml.load(path)
 
-	local currentGame = xfile:find(gameIndex)
+	local currentGame = xfile:find("game")
 
 	if currentGame ~= nil then
 		currentTitle = currentGame:find("title")[1]
@@ -103,11 +98,21 @@ function setupNextGame()
 	print(currentLabel)
 end
 
-function onButtonClick(event,data)
-	setupNextGame()
+function displayGameData()
 	label1:setText(currentLabel)
 	texture:load(currentImage)
 	sprite:setTexture(texture)
+end
+
+function onButtonClick(event,data)
+	local fileName = gameList[gameIndex]
+	if fileName ~= nil
+		setupNextGame(fileName)
+		gameIndex = gameIndex + 1
+	else
+		setupNextGame("Default")
+	end
+	displayGameData()
 end
 
 button = gui:createButton()
@@ -123,5 +128,14 @@ label1:setDim(100,15)
 label1:setText("Default Label")
 label1:setTextAlignment(label1.TEXT_ALIGN_CENTER)
 
-xfile = xml.load("./gamedata/gamedata.xml")
-gameIter = 0
+setupNextGame("Default")
+displayGameData()
+gameIndex = 1
+
+local iter = 1
+for file in lfs.dir[[./gamedata]] do
+	if file ~= "Default"
+		gameList[iter] = file
+		iter = iter + 1
+	end
+end
