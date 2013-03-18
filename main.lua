@@ -29,7 +29,7 @@ layer = MOAILayer2D.new()
 layer:setViewport(viewport)
 
 texture = MOAIImage.new()
-texture:load("default.png")
+texture:load("./resources/default.png")
 
 sprite = MOAIGfxQuad2D.new()
 sprite:setTexture(texture)
@@ -40,8 +40,8 @@ prop:setDeck(sprite)
 prop:setLoc(0,0)
 layer:insertProp(prop)
 
-layermgr.addLayer("img",100000, layer)
-layermgr.addLayer("gui",99999, gui:layer())
+layermgr.addLayer("img",2, layer)
+layermgr.addLayer("gui",1, gui:layer())
 gui:setTheme("basetheme.lua")
 gui:setCurrTextStyle("default")
 
@@ -110,8 +110,6 @@ function onButtonClick(event,data)
 	sprite:setTexture(texture)
 end
 
-chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-
 button = gui:createButton()
 button:setPos(0, 85)
 button:setDim(100,15)
@@ -125,5 +123,5 @@ label1:setDim(100,15)
 label1:setText("Default Label")
 label1:setTextAlignment(label1.TEXT_ALIGN_CENTER)
 
-xfile = xml.load("tmp.xml")
+xfile = xml.load("./gamedata/gamedata.xml")
 gameIter = 0

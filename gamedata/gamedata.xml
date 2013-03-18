@@ -5,7 +5,7 @@
 			<min>2</min>
 			<max>4</max>
 		</time>
-		<image>card1.png</image>
+		<image>./resources/card1.png</image>
 	</game1>
 	<game2>
 		<title>Bacon Sizzle</title>
@@ -13,7 +13,7 @@
 			<min>3</min>
 			<max>5</max>
 		</time>
-		<image>card2.png</image>
+		<image>./resources/card2.png</image>
 	</game2>
 	<game3>
 		<title>Tea Pour</title>
@@ -21,7 +21,7 @@
 			<min>0</min>
 			<max>3</max>
 		</time>
-		<image>card3.png</image>
+		<image>./resources/card3.png</image>
 	</game3>
 	<game4>
 		<title>Milk Cow</title>
@@ -29,7 +29,7 @@
 			<min>2</min>
 			<max>5</max>
 		</time>
-		<image>card4.png</image>
+		<image>./resources/card4.png</image>
 	</game4>
 	<game5>
 		<title>Floss Teeth</title>
@@ -37,7 +37,7 @@
 			<min>0</min>
 			<max>5</max>
 		</time>
-		<image>card5.png</image>
+		<image>./resources/card5.png</image>
 	</game5>
 </root>
 	
