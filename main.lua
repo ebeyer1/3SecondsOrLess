@@ -106,7 +106,7 @@ end
 
 function onButtonClick(event,data)
 	local fileName = gameList[gameIndex]
-	if fileName ~= nil
+	if fileName ~= nil then
 		setupNextGame(fileName)
 		gameIndex = gameIndex + 1
 	else
@@ -132,9 +132,11 @@ setupNextGame("Default")
 displayGameData()
 gameIndex = 1
 
+gameList = {}
+
 local iter = 1
 for file in lfs.dir[[./gamedata]] do
-	if file ~= "Default"
+	if file ~= "Default" and file ~= "." and file ~= ".."then
 		gameList[iter] = file
 		iter = iter + 1
 	end
