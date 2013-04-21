@@ -1,8 +1,14 @@
-<game>
-	<title>Floss Teeth</title>
-	<time>
-		<min>0</min>
-		<max>5</max>
-	</time>
-	<image>./gamedata/FlossTeeth/resources/floss.png</image>
+<!-- ================================================================ -->
+<!--  Copyright (c) 2013 TwoDudesOneCode, Inc. 																					  -->
+<!--  All Rights Reserved.  																															  -->
+<!--  http://TwoDudesOneCode.com																										  -->
+<!-- ================================================================ -->
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<game title="FlossTeeth" action="drag">
+	<resource type = "object">./gamedata/FlossTeeth/resources/floss.png</resource>
+	<resource type="count">1</resource>
+	<resource type = "container">./gamedata/FlossTeeth/resources/teeth.png</resource>
+	<time type = "min">0</time>
+	<time type = "max">5</time>
 </game>

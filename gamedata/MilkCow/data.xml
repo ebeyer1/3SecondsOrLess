@@ -1,8 +1,13 @@
-<game>
-	<title>Milk Cow</title>
-	<time>
-		<min>2</min>
-		<max>5</max>
-	</time>
-	<image>./gamedata/MilkCow/resources/cow.png</image>
+<!-- ================================================================ -->
+<!--  Copyright (c) 2013 TwoDudesOneCode, Inc. 																					  -->
+<!--  All Rights Reserved.  																															  -->
+<!--  http://TwoDudesOneCode.com																										  -->
+<!-- ================================================================ -->
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<game title="MilkCow" action="tap">
+	<resource type = "object">./gamedata/MilkCow/resources/cow.png</resource>
+	<resource type="count">1</resource>
+	<time type = "min">2</time>
+	<time type = "max">5</time>
 </game>

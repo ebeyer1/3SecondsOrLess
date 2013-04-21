@@ -5,10 +5,11 @@
 <!-- ================================================================ -->
 
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<game title="TeaPour" action="tap">
-	<resource type = "object">./gamedata/TeaPour/resources/tea.png</resource>
-	<resource type="count">1</resource>
-	<resource type = "container">./gamedata/TeaPour/resources/cup.png</resource>
+<game title="BaconFry" action="dragndrop">
+	<resource type = "background">/path/</resource>
+	<resource type = "object">./gamedata/BaconFry/resources/bacon.png</resource>
+	<resource type="count">3</resource>
+	<resource type = "container">/path/</resource>
 	<time type = "min">0</time>
 	<time type = "max">3</time>
 </game>

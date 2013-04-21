@@ -1,8 +1,14 @@
-<game>
-	<title>Lawn Mower</title>
-	<time>
-		<min>2</min>
-		<max>4</max>
-	</time>
-	<image>./gamedata/LawnMower/resources/mower.png</image>
+<!-- ================================================================ -->
+<!--  Copyright (c) 2013 TwoDudesOneCode, Inc. 																					  -->
+<!--  All Rights Reserved.  																															  -->
+<!--  http://TwoDudesOneCode.com																										  -->
+<!-- ================================================================ -->
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<game title="LawnMower" action="swipe">
+	<resource type = "object">./gamedata/LawnMower/resources/mower.png</resource>
+	<resource type="count">1</resource>
+	<resource type = "container">./gamedata/LawnMower/resources/lawn.png</resource>
+	<time type = "min">2</time>
+	<time type = "max">4</time>
 </game>

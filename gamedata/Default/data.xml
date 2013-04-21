@@ -1,8 +1,11 @@
-<game>
-	<title>Default</title>
-	<time>
-		<min>0</min>
-		<max>0</max>
-	</time>
-	<image>./gamedata/Default/resources/default.png</image>
+<!-- ================================================================ -->
+<!--  Copyright (c) 2013 TwoDudesOneCode, Inc. 																					  -->
+<!--  All Rights Reserved.  																															  -->
+<!--  http://TwoDudesOneCode.com																										  -->
+<!-- ================================================================ -->
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<game title="Default" action="click">
+	<resource type = "object">./gamedata/Default/resources/default.png</resource>
+	<resource type="count">1</resource>
 </game>
