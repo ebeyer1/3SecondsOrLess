@@ -20,25 +20,25 @@ local data = {
 		images = {
 			normal = {
 				{
-					fileName = "moai.png",
+					fileName = "cathead.png",
 					color = {1, 1, 1, 1},
 				},
 			},
 			hover = {
 				{
-					fileName = "moai.png",
+					fileName = "cathead.png",
 					color = {1, 0, 0, 1},
 				},
 			},
 			pushed = {
 				{
-					fileName = "moai.png",
+					fileName = "cathead.png",
 					color = {0, 1, 0, 1},
 				},
 			},
 			disabled = {
 				{
-					fileName = "moai.png",
+					fileName = "cathead.png",
 					color = {0, 0, 0, 1},
 				},
 			},
@@ -53,7 +53,7 @@ local data = {
 		textVertAlign = "bottom",
 		images = {
 			{
-				fileName = "moai.png",
+				fileName = "cathead.png",
 			},
 		},
 	},

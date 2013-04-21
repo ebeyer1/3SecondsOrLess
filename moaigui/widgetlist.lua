@@ -5,10 +5,10 @@
 	This demonstrates creating a widget list programmatically.
 ]]
 
-local gui = require "gui\\gui"
-local resources = require "gui\\support\\resources"
-local filesystem = require "gui\\support\\filesystem"
-local inputconstants = require "gui\\support\\inputconstants"
+local gui = require "gui/gui"
+local resources = require "gui/support/resources"
+local filesystem = require "gui/support/filesystem"
+local inputconstants = require "gui/support/inputconstants"
 local layermgr = require "layermgr"
 
 -- Turn off the texture loading logging

@@ -35,10 +35,10 @@
 
 local _M = {}
 
-require "gui\\support\\class"
+require "gui/support/class"
 
-local abutton = require "gui\\abutton"
-local awidgetevent = require "gui\\awidgetevent"
+local abutton = require "gui/abutton"
+local awidgetevent = require "gui/awidgetevent"
 
 _M.CheckBox = class(abutton.AButton)
 

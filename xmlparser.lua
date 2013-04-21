@@ -44,7 +44,7 @@ function populateChildren(children, aTable)
 	return aTable
 end
 
-function generateTableFromXMLFile( fileName )
+function xmlparser( fileName )
 	xml = MOAIXmlParser.parseFile( fileName )
 	xmlTable = {}
 	if (xml.attributes) then

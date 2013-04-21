@@ -38,11 +38,11 @@
 
 local _M = {}
 
-require "gui\\support\\class"
+require "gui/support/class"
 
-local awindow = require "gui\\awindow"
-local constants = require "gui\\guiconstants"
-local awidgetevent = require "gui\\awidgetevent"
+local awindow = require "gui/awindow"
+local constants = require "gui/guiconstants"
+local awidgetevent = require "gui/awidgetevent"
 
 _M.ProgressBar = class(awindow.AWindow)
 

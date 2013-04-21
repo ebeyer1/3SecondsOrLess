@@ -39,23 +39,23 @@
 
 local _M = {}
 
-require "gui\\support\\class"
+require "gui/support/class"
 
-local resources = require "gui\\support\\resources"
-local filesystem = require "gui\\support\\filesystem"
+local resources = require "gui/support/resources"
+local filesystem = require "gui/support/filesystem"
 
-local array = require "gui\\support\\array"
-local aevent = require "gui\\aevent"
-local factory = require "gui\\factory"
-local layoutparser = require "gui\\layoutparser"
-local theme = require "gui\\theme"
-local fonts = require "gui\\fonts"
-local textstyles = require "gui\\textstyles"
-local textures = require "gui\\textures"
+local array = require "gui/support/array"
+local aevent = require "gui/aevent"
+local factory = require "gui/factory"
+local layoutparser = require "gui/layoutparser"
+local theme = require "gui/theme"
+local fonts = require "gui/fonts"
+local textstyles = require "gui/textstyles"
+local textures = require "gui/textures"
 
-local constants = require "gui\\guiconstants"
+local constants = require "gui/guiconstants"
 
-local eventtypes = require "gui\\support\\eventtypes"
+local eventtypes = require "gui/support/eventtypes"
 
 _M.GUI = class()
 
@@ -84,7 +84,9 @@ function _M.GUI:_createGUILayer(width, height)
 	viewport:setSize(width, height)
 	viewport:setScale(width, height)
 	viewport:setOffset(-1, 1)
+
 	layer:setViewport(viewport)
+
 
 	local partition = MOAIPartition.new()
 	layer:setPartition(partition)
@@ -92,7 +94,9 @@ function _M.GUI:_createGUILayer(width, height)
 	self._partition = partition
 	self._layer = layer
 	self._viewport = viewport
+  
 end
+
 
 function _M.GUI:_registerHitObject(widget, prop)
 	self._propToWindow[prop] = widget
@@ -493,6 +497,24 @@ function _M.GUI:createWindow(...)
 	return w
 end
 
+
+function _M.GUI:createLineGraph(...)
+	local w = self._factory:create("line graph", ...)
+
+	self:_addWindow(w)
+
+	return w
+end
+
+--Custom element
+function _M.GUI:createPopUp(...)
+	local w = self._factory:create("pop up", ...)
+
+	self:_addWindow(w)
+
+	return w
+end
+
 function _M.GUI:createLabel(...)
 	local w = self._factory:create("label", ...)
 
@@ -631,6 +653,11 @@ function _M.GUI:setCurrTextStyle(name)
 
 	self._currTextStyle = name
 	self._factory:setCurrTextStyle(style)
+end
+
+
+function _M.GUI:loadLayoutfromData(data, prefix, parent, params)
+	return self._layoutParser:createFromData(data, prefix, parent, params)
 end
 
 function _M.GUI:loadLayout(fileName, prefix, parent, params)

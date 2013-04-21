@@ -50,14 +50,22 @@
 	  visibility set independent of the parent's. That is, if the parent is visible,
 	  setting child visibility to false will have no effect. So, the visibility
 	  handling must be done by the gui.
+
+	UPDATED: 5-18-12
+
+	- Added a visibility check to _setCurrImages - if the widget is currently hidden,
+	  then the new prop is explicitly set to hidden, as well. When using images in a
+	  widgetlist, offscreen images were still visible, and appeared at the top of the
+	  list.
 ]]
 
 local _M = {}
 
-require "gui\\support\\class"
+require "gui/support/class"
 
-local text = require "gui\\text"
-local imagelist = require "gui\\imagelist"
+local text = require "gui/text"
+local imagelist = require "gui/imagelist"
+local awidgetevent = require "gui/awidgetevent"
 
 local EventHandler = class()
 _M.AWindow = class()
@@ -169,6 +177,10 @@ function _M.AWindow:_setCurrImages(objIdx, imageType)
 		prop:setDeck(quad)
 		prop:setColor(v.color:getAttr(MOAIColor.ATTR_R_COL), v.color:getAttr(MOAIColor.ATTR_G_COL), v.color:getAttr(MOAIColor.ATTR_B_COL), v.color:getAttr(MOAIColor.ATTR_A_COL))
 		prop:setBlendMode(v.blendSrc, v.blendDst)
+
+		if (not self._visible) then
+			prop:setVisible(false)
+		end
 	end
 
 	self:setDim(self._width, self._height)
@@ -203,6 +215,10 @@ function _M.AWindow:_setParent(parent)
 
 	self:_linkProp(parent._rootProp, self._rootProp)
 	self:_setPriority(self._parent:getPriority() + #self._parent._props + 1 + 1)
+end
+
+function _M.AWindow:_addText()
+	return text.Text(self)
 end
 
 function _M.AWindow:_setTextRect()
@@ -267,6 +283,12 @@ end
 function _M.AWindow:setEnabled(flag)
 	self._enabled = flag
 	
+    if (true == flag) then
+	    self:_setCurrImages(self._BUTTON_INDEX, self.NORMAL_IMAGES)
+    else
+	    self:_setCurrImages(self._BUTTON_INDEX, self.DISABLED_IMAGES)
+    end
+
 	for i, v in ipairs(self._children) do
 		v:setEnabled(flag)
 	end

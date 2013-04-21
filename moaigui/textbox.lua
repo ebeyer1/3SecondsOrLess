@@ -5,12 +5,12 @@
 	This demonstrates creating various widgets programmatically.
 ]]
 
-require "gui\\support\\class"
+require "gui/support/class"
 
-local gui = require "gui\\gui"
-local resources = require "gui\\support\\resources"
-local filesystem = require "gui\\support\\filesystem"
-local inputconstants = require "gui\\support\\inputconstants"
+local gui = require "gui/gui"
+local resources = require "gui/support/resources"
+local filesystem = require "gui/support/filesystem"
+local inputconstants = require "gui/support/inputconstants"
 local layermgr = require "layermgr"
 
 -- Turn off the texture loading logging

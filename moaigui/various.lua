@@ -5,12 +5,12 @@
 	This demonstrates creating various widgets programmatically.
 ]]
 
-require "gui\\support\\class"
+require "gui/support/class"
 
-local gui = require "gui\\gui"
-local resources = require "gui\\support\\resources"
-local filesystem = require "gui\\support\\filesystem"
-local inputconstants = require "gui\\support\\inputconstants"
+local gui = require "gui/gui"
+local resources = require "gui/support/resources"
+local filesystem = require "gui/support/filesystem"
+local inputconstants = require "gui/support/inputconstants"
 local layermgr = require "layermgr"
 
 ButtonHandler = class()
@@ -30,7 +30,7 @@ function ButtonHandler:init()
 end
 
 -- Turn off the texture loading logging
-MOAILogMgr.setLogLevel(MOAILogMgr.LOG_NONE)
+-- MOAILogMgr.setLogLevel(MOAILogMgr.LOG_NONE)
 
 -- Setup your basic window
 local width = 320
@@ -80,10 +80,10 @@ local button = g:createButton()
 button:setPos(45, 10)
 button:setDim(30, 20)
 button:setText("image button")
-button:setNormalImage(resources.getPath("moai.png"), 1, 1, 1, 1)
-button:setHoverImage(resources.getPath("moai.png"), 1, 0, 0, 1)
-button:setPushedImage(resources.getPath("moai.png"), 0, 1, 0, 1)
-button:setDisabledImage(resources.getPath("moai.png"), 0, 0, 1, 1)
+button:setNormalImage(resources.getPath("cathead.png"), 1, 1, 1, 1)
+button:setHoverImage(resources.getPath("cathead.png"), 1, 0, 0, 1)
+button:setPushedImage(resources.getPath("cathead.png"), 0, 1, 0, 1)
+button:setDisabledImage(resources.getPath("cathead.png"), 0, 0, 1, 1)
 
 -- Register the button click event for this widget. This time, we are registering to a
 -- method of a class, so the second parameter is the class instance, and the function is
@@ -95,7 +95,7 @@ local image = g:createImage()
 image:setPos(5, 23)
 image:setDim(22, 15)
 image:setText("Image")
-image:setImage(resources.getPath("moai.png"), 1, 1, 1, 1)
+image:setImage(resources.getPath("cathead.png"), 1, 1, 1, 1)
 image:setTextAlignment(image.TEXT_ALIGN_CENTER, image.TEXT_ALIGN_BOTTOM)
 
 -- -- Progress bar.

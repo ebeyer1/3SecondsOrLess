@@ -31,9 +31,9 @@
 
 local _M = {}
 
-require "gui\\support\\class"
+require "gui/support/class"
 
-local textures = require "gui\\textures"
+local textures = require "gui/textures"
 
 local ImageData = class()
 _M.ImageList = class()

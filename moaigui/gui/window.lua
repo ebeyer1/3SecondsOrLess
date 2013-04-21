@@ -35,9 +35,9 @@
 
 local _M = {}
 
-require "gui\\support\\class"
+require "gui/support/class"
 
-local awindow = require "gui\\awindow"
+local awindow = require "gui/awindow"
 
 _M.Window = class(awindow.AWindow)
 

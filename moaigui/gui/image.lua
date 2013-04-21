@@ -35,10 +35,10 @@
 
 local _M = {}
 
-require "gui\\support\\class"
+require "gui/support/class"
 
-local awindow = require "gui\\awindow"
-local imagelist = require "gui\\imagelist"
+local awindow = require "gui/awindow"
+local imagelist = require "gui/imagelist"
 
 _M.Image = class(awindow.AWindow)
 

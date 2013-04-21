@@ -35,8 +35,8 @@
 
 local _M = {}
 
-local array = require "gui\\support\\array"
-local filesystem = require "gui\\support\\filesystem"
+local array = require "gui/support/array"
+local filesystem = require "gui/support/filesystem"
 
 local DEFAULT_GROUP = "default"
 

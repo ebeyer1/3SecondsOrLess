@@ -35,9 +35,9 @@
 
 local _M = {}
 
-require "gui\\support\\class"
+require "gui/support/class"
 
-aevent = require "gui\\aevent"
+aevent = require "gui/aevent"
 
 _M.AWidgetEvent = class(aevent.AEvent)
 

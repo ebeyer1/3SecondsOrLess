@@ -35,11 +35,11 @@
 
 local _M = {}
 
-require "gui\\support\\class"
+require "gui/support/class"
 
-local awindow = require "gui\\awindow"
-local label = require "gui\\label"
-local awidgetevent = require "gui\\awidgetevent"
+local awindow = require "gui/awindow"
+local label = require "gui/label"
+local awidgetevent = require "gui/awidgetevent"
 
 _M.TextBox = class(awindow.AWindow)
 

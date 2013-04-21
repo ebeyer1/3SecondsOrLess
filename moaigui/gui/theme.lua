@@ -35,12 +35,12 @@
 
 local _M = {}
 
-require "gui\\support\\class"
+require "gui/support/class"
 
-local utilities = require "gui\\support\\utilities"
-local resources = require "gui\\support\\resources"
-local fonts = require "gui\\fonts"
-local textstyles = require "gui\\textstyles"
+local utilities = require "gui/support/utilities"
+local resources = require "gui/support/resources"
+local fonts = require "gui/fonts"
+local textstyles = require "gui/textstyles"
 
 local AWidgetTheme = class()
 local LabelTheme = class(AWidgetTheme)

@@ -35,27 +35,43 @@
 
 local _M = {}
 
-require "gui\\support\\class"
+require "gui/support/class"
 
-local window = require "gui\\window"
-local label = require "gui\\label"
-local image = require "gui\\image"
-local button = require "gui\\button"
-local checkbox = require "gui\\checkbox"
-local radiobutton = require "gui\\radiobutton"
-local editbox = require "gui\\editbox"
-local scrollbar = require "gui\\scrollbar"
-local slider = require "gui\\slider"
-local progressbar = require "gui\\progressbar"
-local textbox = require "gui\\textbox"
-local widgetlist = require "gui\\widgetlist"
-local textstyles = require "gui\\textstyles"
+local window = require "gui/window"
+local label = require "gui/label"
+local image = require "gui/image"
+local button = require "gui/button"
+local checkbox = require "gui/checkbox"
+local radiobutton = require "gui/radiobutton"
+local editbox = require "gui/editbox"
+local scrollbar = require "gui/scrollbar"
+local slider = require "gui/slider"
+local progressbar = require "gui/progressbar"
+local textbox = require "gui/textbox"
+local widgetlist = require "gui/widgetlist"
+local textstyles = require "gui/textstyles"
+local linegraph = require "gui/linegraph"
 
 _M.Factory = class()
 
 function _M.Factory:_createBase(w)
 	w:setTextStyle(self._textStyle)
 end
+
+function _M.Factory:_createLineGraph(orientation)
+	local w = linegraph.LineGraph(self._gui)
+	self:_createBase(w)
+
+	return w
+end
+
+function _M.Factory:_createPopUp(orientation)
+	local w = popup.PopUp(self._gui)
+	self:_createBase(w)
+
+	return w
+end
+
 
 function _M.Factory:_createSlider(orientation)
 	local w = slider.Slider(self._gui)
@@ -272,6 +288,7 @@ function _M.Factory:_registerWidgets()
 	self._registeredWidgets["progressbar"] = self._createProgressBar
 	self._registeredWidgets["textbox"] = self._createTextBox
 	self._registeredWidgets["widgetlist"] = self._createWidgetList
+	self._registeredWidgets["linegraph"] = self._createLineGraph
 end
 
 function _M.Factory:create(widgetType, ...)

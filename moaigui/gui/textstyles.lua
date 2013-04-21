@@ -31,7 +31,7 @@
 
 local _M = {}
 
-local resources = require "gui\\support\\resources"
+local resources = require "gui/support/resources"
 
 local styles = {}
 

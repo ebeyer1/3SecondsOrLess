@@ -20,16 +20,6 @@ function _handleButton1Click(event, data)
 	print("Button 1 Click")
 end
 
--- Respond to button 2 being clicked. This responder uses the method of a class, in order
--- to demonstrate how this is done.
-function ButtonHandler:handleButtonClick(event, data)
-	print("Button 2 Click")
-end
-
-function ButtonHandler:init()
-
-end
-
 -- Turn off the texture loading logging
 MOAILogMgr.setLogLevel(MOAILogMgr.LOG_NONE)
 
@@ -37,7 +27,7 @@ MOAILogMgr.setLogLevel(MOAILogMgr.LOG_NONE)
 local width = 320
 local height = 480
 
-MOAISim.openWindow("Various From Layout", width, height)
+MOAISim.openWindow("Parenting From Layout", width, height)
 
 -- Create the GUI, passing in the dimensions of the screen
 local g = gui.GUI(width, height)
@@ -66,18 +56,12 @@ g:setCurrTextStyle("default")
 -- Parameter 2: (optional) a prefix added to the name (from the layout file) of each widget; this
 --		is to help avoid name collisions
 -- Returns three values, but the second is the only one we're really interested in
-local roots, widgets, groups = g:loadLayout(resources.getPath("variouslayout.lua"), "various")
+local roots, widgets, groups = g:loadLayout(resources.getPath("parentinglayout.lua"), "various")
 
 -- Check if the buttons are a part of the layout file. If they are, register their events
 if (nil ~= widgets.variousbutton1) then
 	local button = widgets.variousbutton1.window
 	button:registerEventHandler(button.EVENT_BUTTON_CLICK, nil, _handleButton1Click)
-end
-
-local buttonHandler = ButtonHandler()
-if (nil ~= widgets.variousbutton2) then
-	local button = widgets.variousbutton2.window
-	button:registerEventHandler(button.EVENT_BUTTON_CLICK, buttonHandler, "handleButtonClick")
 end
 
 -- Callback functions for input
